@@ -80,5 +80,25 @@ class SteamID {
           return $this->id;
       }
   }
+  
+  //Function to sent request to SteamAPI
+  private function getCURL($url) {
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 2);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 2);
+    $request = curl_exec($ch);
+    curl_close($ch);
+    $json = json_decode($request, true);
+    return $json;
+  }
+  
+  //Remove end slash if present as well as trailing whitespace
+  private function cleanOutput($input) {
+    $specialInput = htmlspecialchars(str_replace('/', '', $input));
+    $cleanInput = preg_replace('/\s/', '', $specialInput);
+    return $cleanInput;
+  }
 
 }
