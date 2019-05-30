@@ -19,16 +19,16 @@ class SteamID {
 
   public function isID64() {
     if (strpos($this->id, '7656119') !== false) {
-      $this->id = cleanOutput(str_replace('https://steamcommunity.com/profiles/', '', $this->id));
+      $this->id = $this->cleanOutput(str_replace('https://steamcommunity.com/profiles/', '', $this->id));
       return true;
     }
     return false;
   }
 
   public function resolveVanity() {
-    $search = cleanOutput(str_replace('https://steamcommunity.com/id/', '', $this->id));
+    $search = $this->cleanOutput(str_replace('https://steamcommunity.com/id/', '', $this->id));
     $api = 'http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key='.$this->key.'&vanityurl='.$search;
-    $vanity = getCURL($api);
+    $vanity = $this->getCURL($api);
     if ($vanity['response']['success'] === 1) {
       $this->id = $vanity['response']['steamid'];
       return true;
@@ -80,7 +80,7 @@ class SteamID {
           return $this->id;
       }
   }
-  
+
   //Function to sent request to SteamAPI
   private function getCURL($url) {
     $ch = curl_init();
@@ -93,7 +93,7 @@ class SteamID {
     $json = json_decode($request, true);
     return $json;
   }
-  
+
   //Remove end slash if present as well as trailing whitespace
   private function cleanOutput($input) {
     $specialInput = htmlspecialchars(str_replace('/', '', $input));
