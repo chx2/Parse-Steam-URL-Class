@@ -18,7 +18,7 @@ class SteamID {
   }
 
   public function isID64() {
-    if (strpos($this->id, '7656119') !== false) {
+    if(preg_match('/7656119[0-9]{10}/i', $this->id)) {
       $this->id = $this->cleanOutput(str_replace('https://steamcommunity.com/profiles/', '', $this->id));
       return true;
     }
