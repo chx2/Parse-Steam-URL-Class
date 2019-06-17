@@ -2,17 +2,17 @@
 A PHP class that can be used to parse Steam urls, whether dealing with ID64 or a vanity URL.
 
 ## Why use this?
-If you're simply wanting to parse a steam URL 
-without wanting to import an entire library to 
+If you're simply wanting to parse a steam URL
+without wanting to import an entire library to
 do so, this is a simple snippet that will return
-CommunityID, SteamID, and UserID as an easy to 
+CommunityID, SteamID, and UserID as an easy to
 reference array of values.
 
-### Requirements 
-If you wish to use the resolveVanity() function, you will need to input a Steam WebAPI Key.
+### Requirements
+If you wish to use the resolveVanity() or toAvatar() functions, you will need to input a Steam WebAPI Key.
 Learn more @ https://steamcommunity.com/dev
 
-#### Usage 
+#### Usage
 To use this, you will need to provide an input to convert
 as well your SteamWebAPI Key. For example:
 
@@ -42,6 +42,7 @@ require_once 'steamid.class.php';
 | isID32() | True if input ID follows ID32 format |
 | isID64() | True if input ID follows ID64 format |
 | resolveVanity() | True if input ID is a Vanity URL, converts class id to ID64, returns id |
+| toAvatar() | Checks if id is valid, if so, will return image url, otherwise returns false |
 | toCommunityID() | Convert class id to ID64, returns id |
 | toSteamID() | Convert class id to ID32, returns id |
 | toUserID() | Conver class id to UserID, returns id |

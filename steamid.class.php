@@ -38,6 +38,19 @@ class SteamID {
     }
   }
 
+  public function toAvatar() {
+    if ($this->isID32() || $this->isID64() || $this->resolveVanity()) {
+      $this->$id = $this->toCommunityID($this->$id);
+      $api = 'http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key='.$this->key.'&steamids='.$this->$id;
+      $data = $this->getCURL($api);
+      $image = $data['response']['players'][0]['avatarfull'];
+      return $image;
+    }
+    else {
+      return false;
+    }
+  }
+
   public function toCommunityID() {
       if (preg_match('/^STEAM_/', $this->id)) {
           $parts = explode(':', $this->id);
