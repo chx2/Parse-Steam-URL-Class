@@ -40,8 +40,8 @@ class SteamID {
 
   public function toAvatar() {
     if ($this->isID32() || $this->isID64() || $this->resolveVanity()) {
-      $this->$id = $this->toCommunityID($this->$id);
-      $api = 'http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key='.$this->key.'&steamids='.$this->$id;
+      $key = $this->toCommunityID();
+      $api = 'http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key='.$this->key.'&steamids='.$key;
       $data = $this->getCURL($api);
       $image = $data['response']['players'][0]['avatarfull'];
       return $image;
