@@ -1,4 +1,7 @@
 <?php
+
+namespace chx2\SteamID;
+
 class SteamID {
 
   protected $id;
