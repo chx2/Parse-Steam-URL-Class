@@ -12,11 +12,23 @@ reference array of values.
 If you wish to use the resolveVanity() or toAvatar() functions, you will need to input a Steam WebAPI Key.
 Learn more @ https://steamcommunity.com/dev
 
+## Install 
+
+You can utilize the source code one of two ways:
+
+1. Use composer in your project folder
+```
+composer require chx2/steamidparser
+```
+
+2. Copy steamid.class.php from the src/ directory of the repo directly into the location of your choice in your project
+
 #### Usage
 To use this, you will need to provide an input to convert
 as well your SteamWebAPI Key. For example:
 
 ```php
+require __DIR__ . '/vendor/autoload.php';
 $id = new SteamID($input,$api_key);
 ```
 
@@ -29,11 +41,6 @@ if ($id->resolveVanity()) {
   $steamid = $id->toSteamID();
   $userid = '[U:1:'.$id->toUserID().']';
 }
-```
-
-In order to use it, simply save a copy of the steamid.class.php then in your project:
-```php
-require_once 'steamid.class.php';
 ```
 
 #### Functions List
