@@ -1,5 +1,5 @@
 {
-  "name": "chx2/SteamID",
+  "name": "chx2/steamidparser",
   "description": "A PHP class to convert Steam Profile URLS to SteamID, Community, and UserID's",
   "version": "0.1.6",
   "keywords": ["steamid","communityid","valve"],
