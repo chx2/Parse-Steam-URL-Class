@@ -1,6 +1,6 @@
 <?php
 
-namespace chx2\SteamID;
+namespace chx2;
 
 class SteamID {
 
