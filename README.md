@@ -1,6 +1,5 @@
 # Parse-Steam-URL-Class
 A single PHP class meant to handle the utility of dealing with the conversion between SteamID formats.
-A PHP class that can be used to parse Steam urls, whether dealing with ID64 or a vanity URL.
 
 ## Why use this?
 If you want to parse a steam URL
