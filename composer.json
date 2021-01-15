@@ -1,7 +1,7 @@
 {
   "name": "chx2/steamidparser",
   "description": "A PHP class to convert Steam Profile URLS to SteamID, Community, and UserID's",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "keywords": ["steamid","communityid","valve"],
   "homepage": "https://github.com/chx2/Parse-Steam-URL-Class",
   "license": "MIT",
@@ -14,7 +14,8 @@
     }],
   "require": {
     "php": ">=7.1.0",
-    "ext-bcmath" : "*"
+    "ext-bcmath" : "*",
+    "guzzlehttp/guzzle": "^7.2"
   },
   "autoload": {
     "psr-4": {
